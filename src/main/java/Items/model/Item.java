@@ -15,10 +15,17 @@ public class Item implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique=true)
     private String name;
+    @Column(unique=true)
     private String description;
+    @Column(unique=true)
     private LocalDateTime created = LocalDateTime.now().withNano(0);
+    @Column(unique=true)
     private boolean done;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     @Transient
     private final DateTimeFormatter
             formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
@@ -73,6 +80,14 @@ public class Item implements Serializable {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
