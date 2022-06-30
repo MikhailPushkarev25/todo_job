@@ -32,3 +32,7 @@
 ![alt img](images/16.png)
 ![alt img](images/17.png)
 ![alt img](images/18.png)
+![alt img](images/19.png)
+![alt img](images/20.png)
+![alt img](images/21.png)
+![alt img](images/22.png)
