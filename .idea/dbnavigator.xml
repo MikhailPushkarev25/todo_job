@@ -25,14 +25,14 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="5d4cdbe5-1884-4dde-97b2-074098f4322e">
+      <connection connection-id="39bfe9cb-1298-476c-baf2-08dbcc0ac000">
         <schema name="pg_catalog" object-types="table" />
-        <schema name="public" object-types="table, column" />
+        <schema name="public" object-types="table" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="5d4cdbe5-1884-4dde-97b2-074098f4322e">
+    <connection id="39bfe9cb-1298-476c-baf2-08dbcc0ac000">
       <console name="Connection" type="STANDARD" schema="information_schema" session="Main" />
     </connection>
   </component>
@@ -40,7 +40,7 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="5d4cdbe5-1884-4dde-97b2-074098f4322e" />
+    <connection id="39bfe9cb-1298-476c-baf2-08dbcc0ac000" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -49,7 +49,7 @@
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/db/scripts/table.sql" connection-id="5d4cdbe5-1884-4dde-97b2-074098f4322e" session-id="MAIN" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/db/scripts/table.sql" connection-id="39bfe9cb-1298-476c-baf2-08dbcc0ac000" session-id="MAIN" current-schema="public" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -74,7 +74,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="5d4cdbe5-1884-4dde-97b2-074098f4322e" active="true">
+      <connection id="39bfe9cb-1298-476c-baf2-08dbcc0ac000" active="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -87,7 +87,7 @@
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="5432" />
-          <database value="todo_db" />
+          <database value="todo_df" />
           <type value="USER_PASSWORD" />
           <user value="postgres" />
           <deprecated-pwd value="cGFzc3dvcmQ=" />

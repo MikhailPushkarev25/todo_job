@@ -2,23 +2,24 @@ package Items.controller;
 
 import Items.model.Item;
 import Items.model.User;
+import Items.service.CategoryService;
 import Items.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class ItemController {
 
     private final ItemService service;
+    private final CategoryService categoryService;
 
-    public ItemController(ItemService service) {
+    public ItemController(ItemService service, CategoryService categoryService) {
         this.service = service;
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/items")
@@ -51,12 +52,14 @@ public class ItemController {
     }
 
     @GetMapping("/formAddItem")
-    public String formAddItem() {
+    public String formAddItem(Model model) {
+        model.addAttribute("categories", categoryService.findAllCategory());
         return "addItem";
     }
 
     @GetMapping("/publicate")
     public String publicate(Model model) {
+        model.addAttribute("categories", categoryService.findAllCategory());
         return "publicate";
     }
 
@@ -88,15 +91,17 @@ public class ItemController {
     }
 
     @PostMapping("/createItem")
-    public String createItem(@ModelAttribute Item item) {
-        service.save(item);
+    public String createItem(@ModelAttribute Item item,
+                             @RequestParam("category.id") List<String> catId) {
+        service.add(item, catId);
         return "redirect:/items";
     }
 
 
     @PostMapping("/publication")
-    public String publication(@ModelAttribute Item item) {
-        service.save(item);
+    public String publication(@ModelAttribute Item item,
+                              @RequestParam("category.id") List<String> catId) {
+        service.add(item, catId);
         return "redirect:/items";
     }
 

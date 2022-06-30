@@ -1,5 +1,6 @@
 package Items.persistence;
 
+import Items.model.Category;
 import Items.model.Item;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,9 +17,15 @@ public class ItemStore {
         this.sf = sf;
     }
 
-    public void save(Item item) {
+    public void add(Item item, List<String> catId) {
         Session session = sf.openSession();
         session.beginTransaction();
+        for (String id : catId) {
+            Category category = (Category) session.createQuery("from Category c where id = :cid order by :cid")
+                    .setParameter("cid", Integer.parseInt(id))
+                            .setMaxResults(1).uniqueResult();
+            item.getCategories().add(category);
+        }
         session.save(item);
         session.getTransaction().commit();
         session.close();

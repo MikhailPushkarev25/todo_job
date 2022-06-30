@@ -15,8 +15,8 @@ public class ItemService {
         this.itemStore = itemStore;
     }
 
-    public void save(Item item) {
-        itemStore.save(item);
+    public void add(Item item, List<String> catId) {
+        itemStore.add(item, catId);
     }
 
     public List all() {
